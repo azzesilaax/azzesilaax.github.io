@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>AII006 HOMEWORKS</title>
+</head>
+<body>
+
+    <h1>Azze Sıla Aka</h1>
+    <p>20241136<br>
+    Information Systems Engineering</p>
+
+    <hr> <h2>Homeworks</h2>
+    <ul>
+        <li><a href="HW2.pdf" target="_blank">HW #2</a></li>
+    </ul>
+
+</body>
+</html>
