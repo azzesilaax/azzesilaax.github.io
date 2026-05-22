@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Music Survey</title>
     <style>
-        
+        /* Formun düzenli ve şık durması için CSS kodları */
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
@@ -80,29 +80,30 @@
             <label for="other">Other</label>
         </fieldset>
 
+        <fieldset class="radio-group">
+            <legend>Which music streaming platform do you use most often?</legend>
+            <input type="radio" id="spotify" name="streaming_platform" value="spotify" checked>
+            <label for="spotify">Spotify</label><br>
+            
+            <input type="radio" id="apple" name="streaming_platform" value="apple">
+            <label for="apple">Apple Music</label><br>
+            
+            <input type="radio" id="youtube" name="streaming_platform" value="youtube">
+            <label for="youtube">YouTube Music</label><br>
+            
+            <input type="radio" id="none" name="streaming_platform" value="none">
+            <label for="none">I don't use any premium subscription</label>
+        </fieldset>
+
         <div class="form-group">
             <label for="locations" style="width: auto;">Select the locations you listen to Music:</label><br>
             <select id="locations" name="locations" size="3" style="width: 250px;">
                 <option value="home" selected>At home</option>
                 <option value="car">In the car</option>
                 <option value="anywhere">Anywhere (MP3 Player)</option>
-                <option value="concert">At concerts</option> </select>
+                <option value="concert">At concerts</option>
+            </select>
         </div>
-
-        <fieldset class="radio-group">
-            <legend>Which music streaming platform do you use most often?</legend>
-            <input type="radio" id="spotify" name="streaming_platform" value="spotify" checked>
-            <label for="spotify">Spotify</label><br>
-    
-            <input type="radio" id="apple" name="streaming_platform" value="apple">
-            <label for="apple">Apple Music</label><br>
-    
-            <input type="radio" id="youtube" name="streaming_platform" value="youtube">
-            <label for="youtube">YouTube Music</label><br>
-    
-            <input type="radio" id="none" name="streaming_platform" value="none">
-            <label for="none">I don't use any premium subscription</label>
-        </fieldset>
 
         <div class="form-group">
             <label for="role" style="width: auto;">What role does music play in your life?</label>
