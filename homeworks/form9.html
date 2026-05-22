@@ -80,21 +80,6 @@
             <label for="other">Other</label>
         </fieldset>
 
-        <fieldset class="radio-group">
-            <legend>Select how often you purchase Music CDs:</legend>
-            <input type="radio" id="weekly" name="purchase_freq" value="weekly">
-            <label for="weekly">Weekly</label><br>
-            
-            <input type="radio" id="few_year" name="purchase_freq" value="few_year" checked>
-            <label for="few_year">A few CDs each year</label><br>
-            
-            <input type="radio" id="monthly" name="purchase_freq" value="monthly">
-            <label for="monthly">Monthly</label><br>
-            
-            <input type="radio" id="never" name="purchase_freq" value="never">
-            <label for="never">Never purchase</label>
-        </fieldset>
-
         <div class="form-group">
             <label for="locations" style="width: auto;">Select the locations you listen to Music:</label><br>
             <select id="locations" name="locations" size="3" style="width: 250px;">
@@ -103,6 +88,21 @@
                 <option value="anywhere">Anywhere (MP3 Player)</option>
                 <option value="concert">At concerts</option> </select>
         </div>
+
+        <fieldset class="radio-group">
+            <legend>Which music streaming platform do you use most often?</legend>
+            <input type="radio" id="spotify" name="streaming_platform" value="spotify" checked>
+            <label for="spotify">Spotify</label><br>
+    
+            <input type="radio" id="apple" name="streaming_platform" value="apple">
+            <label for="apple">Apple Music</label><br>
+    
+            <input type="radio" id="youtube" name="streaming_platform" value="youtube">
+            <label for="youtube">YouTube Music</label><br>
+    
+            <input type="radio" id="none" name="streaming_platform" value="none">
+            <label for="none">I don't use any premium subscription</label>
+        </fieldset>
 
         <div class="form-group">
             <label for="role" style="width: auto;">What role does music play in your life?</label>
