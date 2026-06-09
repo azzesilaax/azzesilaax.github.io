@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the World of Rhythm. Discover hip-hop, modern dance, and high heels styles, and step into my personal dance journey.">
+    <title>Dance Styles - World of Rhythm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dance-page">
+
+    <!-- Güncel Navigation Menu -->
+    <header>
+        <div class="logo">RHYTHM<span>DANCE</span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="hakkimda.html">About</a></li>
+                <li><a href="why-dance.html">Why Dance?</a></li>
+                <li><a href="dans-turleri.html" class="active">Dance Styles</a></li>
+                <li><a href="galeri.html">Gallery</a></li>
+                <li><a href="iletisim.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Dance Cards Section -->
+    <section class="page-section">
+        <h2 class="page-title">Choose Your Way to Express Yourself</h2>
+        
+        <div class="dance-grid">
+            <div class="dance-card" onclick="openModal('hiphop')">
+                <h3>Hip-Hop</h3>
+                <p>The rhythm of the streets, ultimate freedom, and explosive energy...</p>
+            </div>
+            
+            <div class="dance-card" onclick="openModal('modern')">
+                <h3>Modern Dance</h3>
+                <p>Physical aesthetics and emotion breaking all the traditional rules...</p>
+            </div>
+            
+            <div class="dance-card" onclick="openModal('heels')">
+                <h3>High Heels</h3>
+                <p>The peak of elegance, balance, and feminine confidence...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hidden Modal Pop-up -->
+    <div class="modal-overlay" id="danceModal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeModal(event)">&times;</span>
+            
+            <h2 class="modal-title" id="modal-title">Dance Name</h2>
+            <p class="modal-desc" id="modal-desc">Dance Description</p>
+            
+            <!-- Video kutucuğunu buradan tamamen sildik! -->
+        </div>
+    </div>
+
+    <!-- JavaScript Data and Functions -->
+    <script>
+        const danceData = {
+            hiphop: {
+                title: "Hip-Hop Culture & Street Styles",
+                desc: `Hip-Hop is far more than just a dance; it is a global culture, a lifestyle, and a powerful form of raw self-expression born in the streets of New York in the 1970s. It emerged as a voice for the youth, driven by the heavy bass, breakbeats, and scratching of DJs. It allows dancers to release their energy and tell their stories without speaking a single word.<br><br>
+                <strong>Key Elements of Hip-Hop:</strong><br>
+                • <strong>The Groove:</strong> The absolute foundation of the dance. It's the continuous bounce, rock, and skate that connects your body deeply to the underlying beat.<br>
+                • <strong>Breaking (B-Boying/B-Girling):</strong> The original hip-hop dance style, featuring dynamic footwork, gravity-defying power moves, and freezes on the floor.<br>
+                • <strong>Popping & Locking:</strong> Funk styles perfectly intertwined with hip-hop. Popping involves quick muscle contractions (hits), while locking consists of freezing in sharp, exaggerated poses.<br>
+                • <strong>Freestyle & Cyphers:</strong> The true soul of street dance. Dancing in the moment without any choreography, often in a circle (cypher) where dancers exchange energy, hype each other up, and battle.<br><br>
+                <strong>The Mindset:</strong><br>
+                Hip-Hop is about authenticity. It is not about pointing your toes perfectly or following strict rules; it's about attitude, confidence, and adding your unique flavor (swag) to the movement. Hip-Hop teaches you to be fearless, own your space, and be completely one with the rhythm.`
+            },
+            modern: {
+                title: "Modern Dance & Emotional Flow",
+                desc: `Born as a powerful rebellion against the rigid constraints of classical ballet, Modern Dance is the ultimate expression of raw, unfiltered human emotion. It strips away the tight shoes and strict rules to focus on the dancer's true connection to the earth and their own body.<br><br>
+                <strong>Key Elements of Modern Dance:</strong><br>
+                • <strong>Contraction & Release:</strong> The fundamental breathing technique that drives movement from the core, creating a dramatic tension and flow.<br>
+                • <strong>Floor Work:</strong> Unlike ballet which constantly reaches for the sky, modern dance embraces gravity. Dancers use the floor as a partner, rolling, falling, and recovering with fluid grace.<br>
+                • <strong>Improvisation & Freedom:</strong> Moving beyond strict choreography to let internal feelings dictate the body's natural lines and curves.<br><br>
+                <strong>The Mindset:</strong><br>
+                Modern dance is deeply personal. It is about vulnerability, breathing through the movement, and telling a profound story. It transforms the body into a brush, painting your deepest emotions directly onto the stage.`
+            },
+            heels: {
+                title: "High Heels & Empowerment",
+                desc: `High Heels dance is the absolute peak of commercial performance, empowerment, and fierce self-confidence. It takes the grooves of hip-hop and the technique of jazz, elevating them—literally—onto stiletto heels. It is designed for the stage, the camera, and owning the spotlight.<br><br>
+                <strong>Key Elements of Heels Dance:</strong><br>
+                • <strong>Lines & Posture:</strong> Precision is everything. Elongating the legs, arching the back, and creating sharp, striking silhouettes that demand attention.<br>
+                • <strong>The Strut:</strong> The foundation of heels dance is the walk. It requires immense core strength, balance, and an undeniable attitude with every single step.<br>
+                • <strong>Sensuality & Dynamics:</strong> Combining slow, smooth body rolls with sudden, sharp hair whips and floor drops, beautifully playing with the music's dynamic shifts.<br><br>
+                <strong>The Mindset:</strong><br>
+                Dancing in heels is a celebration of inner power and aesthetic elegance. It challenges your balance and core, but rewards you with an unmatched feeling of confidence. When you put the heels on, you step into a fierce alter-ego where you are unstoppable.`
+            }
+        };
+
+        function openModal(type) {
+            document.getElementById('modal-title').innerHTML = danceData[type].title;
+            document.getElementById('modal-desc').innerHTML = danceData[type].desc;
+            document.getElementById('danceModal').classList.add('active');
+        }
+
+        function closeModal(e) {
+            document.getElementById('danceModal').classList.remove('active');
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,631 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0a0a0c; 
+    color: #ffffff;
+    overflow-x: hidden; 
+}
+
+
+body.about-page { background: linear-gradient(135deg, #12051f 0%, #0a0a0c 100%); }
+body.dance-page { background: linear-gradient(135deg, #051421 0%, #0a0a0c 100%); } 
+body.gallery-page { background: linear-gradient(135deg, #1f0512 0%, #0a0a0c 100%); } 
+body.contact-page { background: linear-gradient(135deg, #051f14 0%, #0a0a0c 100%); } 
+
+
+body.home-page { 
+    background: radial-gradient(circle at top left, #2a0845 0%, #0a0a0c 80%); 
+}
+
+
+.video-bg {
+    position: fixed; 
+    top: 0;
+    right: 0; 
+    width: 55%; 
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none; 
+    
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 25%);
+    mask-image: linear-gradient(to right, transparent 0%, black 25%);
+}
+
+.video-bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    mix-blend-mode: screen; 
+    opacity: 0.85; 
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: rgba(10, 10, 12, 0.6); 
+    backdrop-filter: blur(10px); 
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #44efff; 
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 15px;
+}
+
+nav ul li a {
+    display: inline-block;
+    color: #efefef;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 18px; 
+    border-radius: 25px; 
+    border: 1px solid transparent; 
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: #44efff;
+    background: rgba(68, 239, 255, 0.1); 
+    border: 1px solid #44efff; 
+    box-shadow: 0 0 10px rgba(68, 239, 255, 0.3); 
+}
+
+
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+}
+
+.hero-content {
+    max-width: 450px; 
+    position: relative;
+    z-index: 2; 
+}
+
+.hero-content h1 {
+    font-size: 65px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 span {
+    color: #44efff; 
+}
+
+.hero-content p {
+    font-size: 19px;
+    color: #a0a0aa;
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: linear-gradient(45deg, #00E5FF, #8A2BE2);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+    transition: 0.4s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(0, 229, 255, 0.6);
+}
+
+/* DİĞER SAYFALARIN ORTAK TASLAK TASARIMI (Arayüz) */
+.page-section {
+    min-height: 100vh;
+    padding: 120px 8% 50px 8%; 
+    position: relative;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 40px;
+    color: #44efff;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Taslak Kutu (Grid) Tasarımı - Dans Türleri ve Galeri İçin */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.draft-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(68, 239, 255, 0.4);
+    border-radius: 20px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-style: italic;
+    backdrop-filter: blur(5px);
+}
+
+/* İletişim Formu Taslağı */
+.draft-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(68, 239, 255, 0.2);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    color: #888;
+    font-style: italic;
+}
+
+/* Hakkımda Sayfası Eklentileri */
+.about-section {
+    min-height: 100vh;
+    padding: 120px 8% 50px 8%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.about-platform {
+    position: relative;
+    z-index: 2; 
+    background: rgba(255, 255, 255, 0.03); 
+    backdrop-filter: blur(15px); 
+    border: 1px solid rgba(68, 239, 255, 0.2); 
+    border-radius: 20px;
+    padding: 50px;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(146, 26, 206, 0.1);
+}
+.about-platform h2 { font-size: 36px; color: #44efff; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 2px; }
+.about-platform p { font-size: 18px; color: #d1d1d6; line-height: 1.8; margin-bottom: 20px; text-align: justify; }/* ========================================= */
+/* YENİ: DANS TÜRLERİ KARTLARI VE EFEKTLERİ  */
+/* ========================================= */
+
+.dance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.dance-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+/* Kartın üstüne gelince neon parlama ve havaya kalkma */
+.dance-card:hover {
+    transform: translateY(-10px);
+    border-color: #44efff;
+    box-shadow: 0 10px 30px rgba(68, 239, 255, 0.2);
+    background: rgba(68, 239, 255, 0.05);
+}
+
+/* Tıklanma anında içeri göçme efekti */
+.dance-card:active {
+    transform: scale(0.95);
+}
+
+.dance-card h3 {
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.dance-card p {
+    color: #aaa;
+    font-size: 16px;
+    font-style: italic;
+}
+
+/* ========================================= */
+/* YENİ: MODAL (ARKA PLAN BLURLU POP-UP)     */
+/* ========================================= */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6); /* Arka planı hafif karartır */
+    backdrop-filter: blur(15px); /* İŞTE O İSTEDİĞİN EFSANE BLUR EFEKTİ */
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+/* Pop-up açıldığında devreye giren class */
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, rgba(30,30,40,0.9), rgba(10,10,15,0.9));
+    border: 1px solid #921ace;
+    border-radius: 25px;
+    padding: 50px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    transform: scale(0.5); /* Başlangıçta küçük durur */
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Açılırken yay gibi fırlama/esneme efekti */
+    box-shadow: 0 0 40px rgba(146, 26, 206, 0.4);
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1); /* Orijinal boyuta döner */
+}
+
+/* Kapatma Çarpısı */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #ff4444; /* Üzerine gelince kırmızı olur */
+    transform: rotate(90deg); /* Çarpı kendi etrafında döner */
+}
+
+.modal-title {
+    font-size: 40px;
+    color: #44efff;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.modal-desc {
+    font-size: 18px;
+    color: #d1d1d6;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+.video-placeholder {
+    background: rgba(255,255,255,0.05); 
+    height: 200px; 
+    border-radius: 15px; 
+    border: 1px dashed #44efff; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: #888;
+}
+
+/* ========================================= */
+/* YENİ: NEDEN DANS (WHY DANCE) SAYFASI      */
+/* ========================================= */
+
+/* Canlı Fuşya/Mor Arka Plan Geçişi */
+body.why-page { 
+    background: linear-gradient(135deg, #1a0b2e 0%, #4b134f 100%); 
+}
+
+.benefits-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px; 
+    margin-top: 40px; 
+    position: relative;
+    z-index: 2;
+}
+
+/* Pembe Neon Efektli Bilgi Kartları */
+.benefit-card { 
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(255, 68, 204, 0.3); 
+    border-radius: 20px; 
+    padding: 30px; 
+    text-align: center; 
+    backdrop-filter: blur(10px); 
+    transition: all 0.4s ease; 
+}
+
+.benefit-card:hover { 
+    transform: translateY(-10px); 
+    border-color: #ff44cc; 
+    box-shadow: 0 10px 30px rgba(255, 68, 204, 0.3); 
+    background: rgba(255, 68, 204, 0.05); 
+}
+
+.benefit-card h3 { 
+    color: #ff44cc; 
+    font-size: 24px; 
+    margin-bottom: 15px; 
+}
+
+.benefit-card p { 
+    color: #d1d1d6; 
+    font-size: 16px; 
+    line-height: 1.6; 
+}
+
+.benefit-icon { 
+    font-size: 45px; 
+    margin-bottom: 15px; 
+}
+
+/* ========================================= */
+/* HAKKIMDA (ABOUT) SAYFASI ÖZEL RENKLERİ    */
+/* ========================================= */
+
+.about-platform h2 {
+    color: #ca0bec; 
+}
+
+/* ========================================= */
+/* DANS TÜRLERİ (DANCE STYLES) MAVİ KONSEPT  */
+/* ========================================= */
+
+/* Kartların üstüne gelince neon mavi parlama */
+body.dance-page .dance-card:hover {
+    border-color: #00d4ff;
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+    background: rgba(0, 212, 255, 0.05);
+}
+
+/* Sayfa Başlığı Mavi Neon */
+body.dance-page .page-title {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #00d4ff;
+}
+
+/* Pop-up (Modal) Çerçevesi ve Başlığı Mavi */
+body.dance-page .modal-content {
+    border: 1px solid #00d4ff;
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+}
+
+body.dance-page .modal-title {
+    color: #00d4ff;
+}
+
+body.dance-page .video-placeholder {
+    border: 1px dashed #00d4ff; 
+}
+
+/* ========================================= */
+/* DANS TÜRLERİ: GENİŞ VE UZUN KART DÜZENİ   */
+/* ========================================= */
+
+body.dance-page .dance-grid {
+    display: flex;
+    flex-direction: column; /* Kartları yan yana değil, alt alta dizer */
+    gap: 40px; /* Kartlar arasındaki boşluk */
+    max-width: 900px; /* Ekran çok büyükse kartların aşırı sünüp çirkinleşmesini engeller */
+    margin: 0 auto; /* Sayfayı tam ortalar */
+    padding-bottom: 60px;
+}
+
+body.dance-page .dance-card {
+    width: 100%;
+    min-height: 220px; /* Kartların yukarıdan aşağıya daha dolgun/uzun olmasını sağlar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Yazıları tam merkeze alır */
+    padding: 40px 30px;
+}
+
+body.dance-page .dance-card h3 {
+    font-size: 36px; /* Genişleyen kartta küçük kalmaması için başlığı büyüttük */
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+body.dance-page .dance-card p {
+    font-size: 18px;
+    max-width: 700px; /* Açıklama yazısının tek satırda çok uzamasını engeller */
+    text-align: center;
+}
+
+/* ========================================= */
+/* POP-UP (MODAL) TAŞMA VE KAYDIRMA AYARI    */
+/* ========================================= */
+
+body.dance-page .modal-content {
+    max-height: 80vh; /* Ekranın %80'inden daha uzun olmasını kesinlikle engeller */
+    overflow-y: auto; /* İçerik sığmazsa sağ tarafa otomatik kaydırma çubuğu ekler */
+}
+
+/* Neon Mavi Kaydırma Çubuğu (Scrollbar) Tasarımı */
+body.dance-page .modal-content::-webkit-scrollbar {
+    width: 8px; /* Çubuğun kalınlığı */
+}
+
+body.dance-page .modal-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3); /* Çubuğun arka yolu */
+    border-radius: 10px;
+}
+
+body.dance-page .modal-content::-webkit-scrollbar-thumb {
+    background: #00d4ff; /* O sevdiğimiz neon mavi */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.6); /* Çubuğa neon parlama efekti */
+}
+
+/* ========================================= */
+/* GALERİ (GALLERY) SAYFASI SARI KONSEPT     */
+/* ========================================= */
+
+body.gallery-page .page-title {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ffe600; /* Cyber Altın Sarısı */
+}
+
+/* Fotoğraf ve Videoların Dizileceği Izgara */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ekran boyutuna göre otomatik yan yana dizer */
+    gap: 30px;
+    padding-bottom: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Medya Kutularının Tasarımı */
+.gallery-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden; /* Köşelerden taşan kısımları tıraşlar */
+    border: 1px solid rgba(255, 230, 0, 0.3); /* Hafif sarı çerçeve */
+    transition: all 0.4s ease;
+    background: rgba(0, 0, 0, 0.5); /* İçine görsel gelene kadar şık bir karanlık */
+    aspect-ratio: 16 / 9; /* Yatay video/fotoğraf formatı */
+}
+
+/* Kartın Üstüne Gelince Büyüme ve Parlama Efekti */
+.gallery-item:hover {
+    transform: scale(1.05); /* %5 Büyütür */
+    border-color: #ffe600;
+    box-shadow: 0 10px 30px rgba(255, 230, 0, 0.3);
+}
+
+/* Kutunun İçindeki Görsel ve Videoların Ayarı */
+.gallery-item img, 
+.gallery-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Görseli ezmeden kutuya tam sığdırır */
+    display: block;
+}
+/* Galeri Sayfası Özel Arka Planı (Derin İndigo) */
+body.gallery-page {
+    background: linear-gradient(135deg, #16102b 0%, #08050f 100%);
+}
+
+/* ========================================= */
+/* İLETİŞİM: TEK KUTU (KART) TASARIMI        */
+/* ========================================= */
+
+body.contact-page {
+    text-align: center;
+}
+
+/* Devasa İletişim Kartı */
+.contact-card {
+    max-width: 900px;
+    margin: 0 auto;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 30px;
+    background: rgba(0, 0, 0, 0.4); /* Şık, koyu arka plan */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    transition: all 0.4s ease;
+}
+
+
+.contact-card:hover {
+    border-color: #41e7ea;
+    box-shadow: 0 10px 30px rgba(255, 94, 98, 0.2);
+    background: rgba(255, 94, 98, 0.05);
+}
+
+.contact-card h3 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.contact-card p {
+    font-size: 18px;
+    max-width: 700px;
+    color: #ccc;
+    margin: 5px 0;
+}
+
+/* Linklerin (E-posta/Instagram) Rengi */
+.contact-card a {
+    color: #4fe4f5;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.contact-card a:hover {
+    color: #fff;
+}
+
+/* ========================================= */
+/* GALERİ KUTUCUK BOYUTLARINI BÜYÜTME       */
+/* ========================================= */
+
+.gallery-grid {
+    /* Kutuların minimum genişliğini 300px'ten 360px'e çıkardık, böylece otomatik olarak büyüdüler */
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)) !important; 
+    
+    /* Sayfa genişledikçe kutuların daha da büyüyebilmesi için maksimum sınırımızı artırdık */
+    max-width: 1250px !important; 
+}
